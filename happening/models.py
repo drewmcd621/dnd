@@ -27,7 +27,7 @@ class Game(models.Model):
     time = models.TimeField("Time",null=True)
     happening = models.BooleanField("Is it happening this week?", choices=YES_NO, default=True)
     created_at = models.DateTimeField("Created On", auto_now_add=True, editable=False)
-    updated_at = models.DateTimeField(":Last Updated On", auto_add=True, editable=False)
+    updated_at = models.DateTimeField("Last Updated On", auto_now=True, editable=False)
 
     def __str__(self):
         return self.name
