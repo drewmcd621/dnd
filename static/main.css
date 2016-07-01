@@ -6,7 +6,9 @@
 {
   background-color: #DEB1B9;
 }
-.jumbotron .small
+.jumbotron .updated
 {
   font-size:16px;
+  text-align: right;
+
 }
