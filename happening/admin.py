@@ -15,3 +15,7 @@ class GameAdmin(admin.ModelAdmin):
 
             #Only show their own game model to them
             return qs.filter(host=request.user)
+
+    def save_model(self, request, obj, form, change):
+        obj.host = request.user
+        obj.save()
