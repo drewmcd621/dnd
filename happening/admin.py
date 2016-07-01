@@ -1,9 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from happening.models import *
+from happening.models import Game
 
-admin.site.register(Game)
+
 
 class GameAdmin(admin.ModelAdmin):
 
@@ -19,3 +19,5 @@ class GameAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.host = request.user
         obj.save()
+
+admin.site.register(Game, GameAdmin)
