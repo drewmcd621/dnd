@@ -7,8 +7,8 @@ from happening.models import Game
 
 class GameAdmin(admin.ModelAdmin):
 
-    def queryset(self, request):
-            qs = super(GameAdmin, self).queryset(request)
+    def get_queryset(self, request):
+            qs = super(GameAdmin, self).get_queryset(request)
 
             if request.user.is_superuser:
                 return qs
