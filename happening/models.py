@@ -27,7 +27,7 @@ class Game(models.Model):
     time = models.TimeField("Time (UTC)",null=True)
     happening = models.BooleanField("Is it happening this week?", choices=YES_NO, default=True)
     notes = models.TextField("Game Notes",blank=True,default='')
-    updated_by = models.ForeignKey(User,related_name='updater', on_delete=models.SET_NULL, editable=False)
+    updated_by = models.ForeignKey(User,related_name='updater', on_delete=models.SET_NULL, editable=False, null=True)
     created_at = models.DateTimeField("Created On", auto_now_add=True, editable=False)
     updated_at = models.DateTimeField("Last Updated On",  auto_now=True, editable=False)
 
