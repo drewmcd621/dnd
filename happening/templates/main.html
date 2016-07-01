@@ -15,7 +15,7 @@
 
 
 {% block js %}
-  var utc = moment.utc("{{game.time|date:"H:i:s"}}");
+  var utc = moment.utc("{{game.time|date:"H:i"}}","HH:mm")
   var local = moment(utc).local();
   console.log(local.format("h:mm a"));
 {% endblock %}
