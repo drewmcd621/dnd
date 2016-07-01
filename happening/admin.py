@@ -20,6 +20,7 @@ class GameAdmin(admin.ModelAdmin):
         if(not change):
             obj.host = request.user
 
+        obj.updated_by = request.user
         obj.save()
 
 admin.site.register(Game, GameAdmin)
