@@ -4,3 +4,14 @@ from django.contrib import admin
 from happening.models import *
 
 admin.site.register(Game)
+
+class GameAdmin(admin.ModelAdmin):
+
+    def queryset(self, request):
+            qs = super(GameAdmin, self).queryset(request)
+
+            if request.user.is_superuser:
+                return qs
+
+            #Only show their own game model to them
+            return qs.filter(host=request.user)
