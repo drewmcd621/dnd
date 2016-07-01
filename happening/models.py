@@ -21,7 +21,7 @@ class Game(models.Model):
     )
 
     name = models.CharField("Game name",max_length=100)
-    url = models.SlugField("Url: www.isdndhappeningthisweek.com/", max_length=50, unique=True)
+    url = models.SlugField("Url:\nwww.isdndhappeningthisweek.com/", max_length=50, unique=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE)
     dow  = models.IntegerField("Day of Week",choices=DAYS_OF_WEEK, null=True)
     time = models.TimeField("Time",null=True)
