@@ -9,7 +9,7 @@
 
     {% else %}
       <h2>{{game.name}} will not be happening this week</h2>
-      <p>Blame {{game.host.username}} (or more likely someone in your game)</p>
+      <p>Blame {{game.host.username}} (or more likely someone in your game).  This was last changd on <span class='updated'></span></p>
     {% endif %}
 
 {% endblock %}
@@ -29,7 +29,7 @@
   $(".date").text(day.format("dddd, MMMM Do"));
   $(".time").text(time.format("h:mm a"));
 
-  var update = moment.utc("{{game.updated_at|date "c"}}");
+  var update = moment.utc("{{game.updated_at|date:"c"}}");
   var update_loc = moment(update).local();
 
   $(".updated").text(update_loc.format("M/D/YYYY h:mm:ss a"));
