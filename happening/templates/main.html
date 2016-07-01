@@ -4,7 +4,7 @@
   <div class="jumbotron {% if game.happening %}game-yes{% else %}game-no{% endif %}">
     <h1 class='game-status'>{% if game.happening %}Yes{% else %}No{% endif %}</h1>
     {% if game.happening %}
-      <h2>{{game.name}} will be happening on </h2>
+      <h2>{{game.name}} will be happening on <span class='date'></span> at <span class='time'></span></h2>
 
     {% else %}
       <h2>{{game.name}} will not be happening this week</h2>
@@ -25,8 +25,11 @@
     day.add(7,'days');
   }
 
-  console.log(local.format("h:mm a"));
+  console.log(time.format("h:mm a"));
   console.log(day.format("dddd, MMMM Do"));
+
+  $(".date").text(day.format("dddd, MMMM Do"));
+  $(".time").text(time.format("h:mm a"));
 {% endblock %}
 
 <!--
