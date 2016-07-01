@@ -1,3 +1,4 @@
 *.pyc
+*.sqlite*
 
 /dnd/secrets.py
