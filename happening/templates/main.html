@@ -5,6 +5,7 @@
     <h1 class='game-status'>{% if game.happening %}Yes{% else %}No{% endif %}</h1>
     {% if game.happening %}
       <h2>{{game.name}} will be happening on <span class='date'></span> at <span class='time'></span></h2>
+      <p>DM {{game.host.username}} changed this on <span class='updated'></span></p>
 
     {% else %}
       <h2>{{game.name}} will not be happening this week</h2>
@@ -25,11 +26,15 @@
     day.add(7,'days');
   }
 
-  console.log(time.format("h:mm a"));
-  console.log(day.format("dddd, MMMM Do"));
-
   $(".date").text(day.format("dddd, MMMM Do"));
   $(".time").text(time.format("h:mm a"));
+
+  var update = moment.utc("{{game.updated_at|date "c"}}");
+  var update_loc = moment(update).local();
+
+  $(".updated").text(update_loc.format("M/D/YYYY h:mm:ss a"));
+
+
 {% endblock %}
 
 <!--
