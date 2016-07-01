@@ -17,9 +17,9 @@ class GameAdmin(admin.ModelAdmin):
             return qs.filter(host=request.user)
 
     def save_model(self, request, obj, form, change):
-        if(!change):
+        if(not change):
             obj.host = request.user
-            
+
         obj.save()
 
 admin.site.register(Game, GameAdmin)
