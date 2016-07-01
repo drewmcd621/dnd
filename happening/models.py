@@ -12,7 +12,7 @@ class Game(models.Model):
         (3, 'Wednesday'),
         (4, 'Thursday'),
         (5, 'Friday'),
-        (6, 'Saturday'),    
+        (6, 'Saturday'),
     )
 
     YES_NO = (
@@ -26,6 +26,7 @@ class Game(models.Model):
     dow  = models.IntegerField("Day of Week",choices=DAYS_OF_WEEK, null=True)
     time = models.TimeField("Time (UTC)",null=True)
     happening = models.BooleanField("Is it happening this week?", choices=YES_NO, default=True)
+    reason = models.TextField("If No, why not?",blank=True,default='')
     created_at = models.DateTimeField("Created On", auto_now_add=True, editable=False)
     updated_at = models.DateTimeField("Last Updated On", auto_now=True, editable=False)
 

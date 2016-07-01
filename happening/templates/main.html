@@ -14,7 +14,13 @@
 
     {% else %}
       <h2>{{game.name}} will not be happening this week</h2>
-      <p>Blame {{game.host.username}} (or more likely someone in your game).  This was last changed on <span class='updated'></span></p>
+      {% if game.reason|length > 0 %}
+          <p>The host, {{game.host.username}}, gave this as the reason:</p>
+          <p>{{game.reason}}</p>
+        {% else %}
+          <p>Blame the host, {{game.host.username}}</p>
+        {% endif %}
+      <p>This was last changed on <span class='updated'></span></p>
     {% endif %}
   </div>
 {% endblock %}
