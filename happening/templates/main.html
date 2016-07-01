@@ -1,0 +1,7 @@
+<h1>{{game.name}}</h1>
+<h2>{{game.host.username}}</h2>
+{% if game.happening %}
+  <p>The game is happening this week!</p>
+{% else %}
+  <p>It's not happening this week :(</p>
+{% endif %}

@@ -21,10 +21,13 @@ class Game(models.Model):
     )
 
     name = models.CharField("Game name",max_length=100)
+    url = models.SlugField("Url: www.isdndhappeningthisweek.com/", max_length=50, unique=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE)
     dow  = models.IntegerField("Day of Week",choices=DAYS_OF_WEEK, null=True)
     time = models.TimeField("Time",null=True)
     happening = models.BooleanField("Is it happening this week?", choices=YES_NO, default=True)
+    created_at = models.DateTimeField("Created On", auto_now_add=True, disabled=True)
+    updated_at = models.DateTimeField(":Last Updated On", auto_add=True, disabled=True)
 
     def __str__(self):
         return self.name
