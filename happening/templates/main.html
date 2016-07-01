@@ -1,3 +1,26 @@
+{% extends "master.html" %}
+
+{% block body %}
+  <div class="jumbotron {% if game.happening %}game-yes{% else %}game-no{% endif %}">
+    <h1 class='game-status'>{% if game.happening %}Yes{% else %}No{% endif %}</h1>
+    {% if game.happening %}
+
+    {% else %}
+      <h2>{{game.name}} will not be happening this week</h2>
+      <p>Blame {{game.host.username}} (or more likely someone in your game)</p>
+    {% endif %}
+
+{% endblock %}
+
+
+
+{% block js %}
+  var utc = moment.utc("{{game.time}}");
+  var local = moment(utc).local();
+  console.log(local.format("h:mm a"));
+{% endblock %}
+
+<!--
 <h1>{{game.name}}</h1>
 <h2>{{game.host.username}}</h2>
 {% if game.happening %}
@@ -5,3 +28,5 @@
 {% else %}
   <p>It's not happening this week :(</p>
 {% endif %}
+</div>
+-->
