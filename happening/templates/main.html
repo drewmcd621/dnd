@@ -18,7 +18,7 @@
 {% block js %}
   var utc = moment.utc("{{game.time|date:"H:i"}}","HH:mm")
   var local = moment(utc).local();
-  var day = moment().day("{{game.get_dow_display}}"")
+  var day = moment().day("{{game.get_dow_display}}")
   console.log(local.format("h:mm a"));
   console.log(day.format("dddd, MMMM Do"));
 {% endblock %}
