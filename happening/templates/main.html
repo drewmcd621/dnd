@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+  <br>
   <div class="jumbotron {% if game.happening %}game-yes{% else %}game-no{% endif %}">
     <h1 class='game-status'>{% if game.happening %}Yes{% else %}No{% endif %}</h1>
     {% if game.happening %}
@@ -15,7 +16,7 @@
       <h2>{{game.name}} will not be happening this week</h2>
       <p>Blame {{game.host.username}} (or more likely someone in your game).  This was last changed on <span class='updated'></span></p>
     {% endif %}
-
+  </div>
 {% endblock %}
 
 
